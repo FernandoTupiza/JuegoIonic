@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      <ion-icon name="game-controller-outline"></ion-icon>
+      JUEGO EN IONIC
+      <ion-icon name="game-controller-outline"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+ 
+<ion-content>
+  <ion-card>
+    <img src="/assets/num.png" alt="" />
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Adivina el Numero</ion-card-title>
+      <ion-card-subtitle>Instrucciones</ion-card-subtitle>
+      <p> 1. Ingresar un numero del 1 al 100</p>
+      <p> 2. Verificar el numero ingresado si es el acertado</p>
+      <p> 3. Si no es acertado les dira que el numero esta mayor o menor al ingresado</p>
+      <p> 4. Al acertar les mostrara un mensaje que el numero es el correcto</p>
+    </ion-card-header>
+   
+  </ion-card>
+  <div class="ion-padding">
+    <ion-input type="number" min="1" max="100" [(ngModel)]="num" placeholder="Introduce un número del 1 al 100"></ion-input>
+    <p>El número secreto es {{ mayorMenor }} {{ num }}</p>
+    <ion-button expand="block" (click)="compruebaNumero()">Adivina</ion-button>     
+  </div>
+  <ion-card *ngIf="mayorMenor==''">
+    <ion-card-header>
+    ¡¡¡Enhorabuena!!!
+  </ion-card-header>
+  <ion-card-content>
+      Has acertado, el número secreto es el {{ num }}
+  </ion-card-content>
+  </ion-card>
+</ion-content>
